@@ -1,0 +1,30 @@
+1. Create account
+2,Reference: https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/ (Supply basic auth headers)
+ For Basic Token
+Step1: Generate an API token for Jira using your Atlassian Account. ATATT3xFfGF0uYWfSuErOde1ojPCZ_vRJaKVDaSB_1moqv1BjBda8dRpzKgujvi8_XsSpM3CsFsjiTBM9K41B6qhw51PjRcMrIjykSyf_e9K0HEq2MhrLlHud9tiPWwYvOD2Eiuxn1h8tOKLcvckg42DuRA442D1NWNtltWyOJk6EkPX-LEFYUA=6EBD5CEF
+
+Step2: Build a string of the form useremail:api_token.
+nikumbhprashansa@gmail.com:ATATT3xFfGF0uYWfSuErOde1ojPCZ_vRJaKVDaSB_1moqv1BjBda8dRpzKgujvi8_XsSpM3CsFsjiTBM9K41B6qhw51PjRcMrIjykSyf_e9K0HEq2MhrLlHud9tiPWwYvOD2Eiuxn1h8tOKLcvckg42DuRA442D1NWNtltWyOJk6EkPX-LEFYUA=6EBD5CEF
+
+step3: BASE64 encode the string.(Encode online on https://www.base64encode.org/)
+
+bmlrdW1iaHByYXNoYW5zYUBnbWFpbC5jb206QVRBVFQzeEZmR0YwdVlXZlN1RXJPZGUxb2pQQ1pfdlJKYUtWRGFTQl8xbW9xdjFCakJkYThkUnB6S2d1anZpOF9Yc1NwTTNDc0ZzamlUQk05SzQxQjZxaHc1MVBqUmNNcklqeWtTeWZfZTlLMEhFcTJNaHJMbEh1ZDl0aVBXd1l2T0QyRWl1eG4xaDh0T0tMY3Zja2c0MkR1UkE0NDJEMU5XTnRsdFd5T0prNkVrUFgtTEVGWVVBPTZFQkQ1Q0VG
+
+
+Step4 Supply an Authorization header with content Basic followed by the encoded string. For example, the string fred:fred encodes to ZnJlZDpmcmVk in base64, so you would make the request as follows:
+
+curl -D- \
+   -X GET \
+   -H "Authorization: Basic ZnJlZDpmcmVk" \
+   -H "Content-Type: application/json" \
+   "https://your-domain.atlassian.net/rest/api/2/issue/QA-31"
+
+
+
+
+ATATT3xFfGF0uYWfSuErOde1ojPCZ_vRJaKVDaSB_1moqv1BjBda8dRpzKgujvi8_XsSpM3CsFsjiTBM9K41B6qhw51PjRcMrIjykSyf_e9K0HEq2MhrLlHud9tiPWwYvOD2Eiuxn1h8tOKLcvckg42DuRA442D1NWNtltWyOJk6EkPX-LEFYUA=6EBD5CEF
+
+ https://nikumbhprashansa.atlassian.net/rest/api/3/issue
+============================================================================================
+Add Attachmente
+  https://nikumbhprashansa.atlassian.net/rest/api/3/issue/{issueIdOrKey}/attachments
