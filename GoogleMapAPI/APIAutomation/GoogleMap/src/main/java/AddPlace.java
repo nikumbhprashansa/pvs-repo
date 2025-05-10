@@ -25,6 +25,11 @@ public class AddPlace {
                 .then().log().all().assertThat().statusCode(200).body("scope", equalTo("APP"))
                 .header("Server",equalTo("Apache/2.4.52 (Ubuntu)"));
 
+        System.out.println("Added new SOP in develop branch");
+
     }
+
+
+
 
 }
